@@ -5,6 +5,7 @@ class Mover
     this.position = createVector(width / 2, 30);
     this.velocity = createVector();
     this.acceleration = createVector();
+    this.r = 20
     
     this.mass = 1;
   }
@@ -35,19 +36,19 @@ class Mover
   
   checkEdges()
   {
-    if (this.position.x > width)
+    if (this.position.x > width - this.r)
       {
-        this.position.x = width;
+        this.position.x = width - this.r;
         this.velocity.x *= -1;
       }
-    if (this.position.x < 0)
+    if (this.position.x < this.r)
       {
-        this.position.x = 0;
+        this.position.x = this.r;
         this.velocity.x *= -1;
       }
-    if (this.position.y > height)
+    if (this.position.y > height - this.r)
       {
-        this.position.y = height;
+        this.position.y = height - this.r;
         this.velocity.y *= -1;
       }
   }
